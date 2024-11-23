@@ -23,8 +23,7 @@ __base event:__
 
 ## Health
 
-<a id="HEALTH.NUTRI_TRACK.LIQUID.V1"></a>
-**Event**: `HEALTH.NUTRI_TRACK.LIQUID.V1`
+#### Event: `HEALTH.NUTRI_TRACK.LIQUID.V1`
 - **Context**: `Health`
 - **Created**: `2024-11-23`
 - **Triggers**: `Home assistant`
