@@ -32,15 +32,38 @@ __base event:__
 
 ```json
 {
-    "type": "HEALTH.NUTRI_TRACK.LIQUID.V1",
-    "person_id": "igor_alves",
-    "datetime": "1998-01-31T14:40",
-    "liquid": "Água",
-    "amount": 200,
-    "meta_data": {}
+  "type": "HEALTH.NUTRI_TRACK.LIQUID.V1",
+  "person_id": "igor_alves",
+  "datetime": "1998-01-31T14:40",
+  "liquid": "Água",
+  "amount": 200,
+  "meta_data": {}
 }
 ```
 - **amount**: Inteiro em ml
+
+
+#### Event: `HEALTH.NUTRI_TRACK.LIQUID_SUMMARY.V1`
+- **Context**: `Health`
+- **Created**: `2024-11-23`
+- **Triggers**: `NutriTrack`
+- **Listeners**: `EventSync`
+- **routing_key**: `orchestrator.event-sync`
+
+```json
+{
+  "type": "HEALTH.NUTRI_TRACK.LIQUID_SUMMARY.V1",
+  "person_id": "igor_alves",
+  "datetime": "1998-01-31T14:40",
+  "total_liquid": {
+    "healthy": 1200,
+    "unhealthy": 300
+  },
+  "meta_data": {}
+}
+```
+- **total_liquid.healthy**: Inteiro em ml - Total de líquidos saudáveis ingeridos no dia
+- **total_liquid.healthy**: Inteiro em ml - Total de líquidos não saudáveis ingeridos no dia
 
 -----
 - **Updated on**: 2024-11-23
