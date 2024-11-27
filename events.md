@@ -45,7 +45,7 @@ __base event:__
 
 #### Event: `HEALTH.NUTRI_TRACK.LIQUID_SUMMARY.V1`
 - **Context**: `Health`
-- **Created**: `2024-11-23`
+- **Created**: `2024-11-26`
 - **Triggers**: `NutriTrack`
 - **Listeners**: `EventSync`
 - **routing_key**: `orchestrator.event-sync`
@@ -65,5 +65,24 @@ __base event:__
 - **total_liquid.healthy**: Inteiro em ml - Total de líquidos saudáveis ingeridos no dia
 - **total_liquid.healthy**: Inteiro em ml - Total de líquidos não saudáveis ingeridos no dia
 
+
+#### Event: `HEALTH.NUTRI_TRACK.LIQUID_ACCEPTABLE.V1`
+- **Context**: `Health`
+- **Created**: `2024-11-27`
+- **Triggers**: `NutriTrack`
+- **Listeners**: `EventSync`
+- **routing_key**: `orchestrator.event-sync`
+
+```json
+{
+  "type": "HEALTH.NUTRI_TRACK.LIQUID_ACCEPTABLE.V1",
+  "person_id": "system",
+  "datetime": "1998-01-31T14:40",
+  "accepted_liquids": ["Água", "Suco Natural", "Chá", "Leite"],
+  "meta_data": {}
+}
+```
+- **accepted_liquids**: lista de string
+
 -----
-- **Updated on**: 2024-11-23
+- **Updated on**: 2024-11-27
