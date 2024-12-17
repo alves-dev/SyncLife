@@ -82,7 +82,29 @@ __base event:__
   "meta_data": {}
 }
 ```
-- **accepted_liquids**: lista de string
+- **accepted_liquids**: lista de 
+
+
+#### Event: `HEALTH.NUTRI_TRACK.SOLID.V1`
+- **Context**: `Health`
+- **Created**: `2024-12-17`
+- **Triggers**: `Home assistant`
+- **Listeners**: `NutriTrack`
+- **routing_key**: `health.nutri-track`
+
+```json
+{
+  "type": "HEALTH.NUTRI_TRACK.SOLID.V1",
+  "person_id": "igor_alves",
+  "datetime": "1998-01-31T14:40",
+  "meal": "Almoço",
+  "food": "Frango",
+  "weight": 123,
+  "meta_data": {}
+}
+```
+- **food**: alimento
+- **weight**: `Opcional` peso em gramas do alimento
 
 -----
-- **Updated on**: 2024-11-27
+- **Updated on**: 2024-12-17
