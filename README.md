@@ -31,6 +31,10 @@ Foi definido as seguintes separações:
 | [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync) | C#       | .NET      |         |
 | [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)     | Java     | Quarkus   | gradlew |
 
+
+### Diagrama
+![Diagrama.png](assets/Diagrama.png)
+
 -----
-- **Updated on**: 2024-11-23 | **Updated by**: Igor Alves
+- **Updated on**: 2024-12-21 | **Updated by**: Igor Alves
 - **Created on**: 2024-10-29 | **Created by**: Igor Alves
