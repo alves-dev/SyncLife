@@ -16,25 +16,26 @@ Foi definido as seguintes separações:
 #### Lista de aplicações na stack:
 | Application                                                               | Context      | Description                                                                                            | Status        |
 |---------------------------------------------------------------------------|--------------|--------------------------------------------------------------------------------------------------------|---------------|
-| [BodyTrack]()                                                             | Health       | Aquilo que eu faço/tem haver com o meu corpo; medidas, atividades fisicas, mapeamento do sono e outros | Planejado     |
+| [BodyTrack](https://github.com/alves-dev/SyncLife-Health-BodyTrack)       | Health       | Aquilo que eu faço/tem haver com o meu corpo; medidas, atividades fisicas, mapeamento do sono e outros | Planejado     |
 | [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync) | Orchestrator | Orquestra os eventos entre os protocolos MQTT e AMQP                                                   | Desenvolvendo |
-| [Grafana](https://grafana.com/)                                           |              |                                                                                                        | -----         |
+| [Grafana](https://grafana.com/)                                           | View         |                                                                                                        | -----         |
 | [Mosquitto](https://mosquitto.org/)                                       | Orchestrator |                                                                                                        | -----         |
+| MySQL                                                                     | Data         |                                                                                                        | -----         |
 | [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)     | Health       | Tudo aquilo que eu ingiro; água, comida, suplementos e outros                                          | Desenvolvendo |
 | [RabbitMQ](https://www.rabbitmq.com/)                                     | Orchestrator | [Eventos](events.md)                                                                                   | -----         |
 
 
 #### Aplicações e suas tecnologias:
-| Application                                                               | Language | Framework | Others  |
-|---------------------------------------------------------------------------|----------|-----------|---------|
-| [BodyTrack]()                                                             |          |           |         |
-| [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync) | C#       | .NET      |         |
-| [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)     | Java     | Quarkus   | gradlew |
+| Application                                                               | Language | Framework   | Others  |
+|---------------------------------------------------------------------------|----------|-------------|---------|
+| [BodyTrack](https://github.com/alves-dev/SyncLife-Health-BodyTrack)       | Kotlin   | Spring Boot | gradlew |
+| [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync) | C#       | .NET        |         |
+| [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)     | Java     | Quarkus     | gradlew |
 
 
 ### Diagrama
 ![Diagrama.png](assets/Diagrama.png)
 
 -----
-- **Updated on**: 2024-12-21 | **Updated by**: Igor Alves
+- **Updated on**: 2025-01-19 | **Updated by**: Igor Alves
 - **Created on**: 2024-10-29 | **Created by**: Igor Alves
