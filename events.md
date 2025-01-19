@@ -106,5 +106,27 @@ __base event:__
 - **food**: alimento
 - **weight**: `Opcional` peso em gramas do alimento
 
+
+#### Event: `HEALTH.BODY_TRACK.SLEEP.V1`
+- **Context**: `Health`
+- **Created**: `2025-01-19`
+- **Triggers**: `Home assistant`
+- **Listeners**: `BodyTrack`
+- **routing_key**: `health.body-track`
+
+```json
+{
+  "type": "HEALTH.BODY_TRACK.SLEEP.V1",
+  "person_id": "igor_alves",
+  "datetime": "2025-01-19T06:00",
+  "action": "WAKE_UP",
+  "meta_data": {
+    "origin": "home",
+    "created_at": "2022-01-18T22:30"
+  }
+}
+```
+- **action**: `SLEEP` ou `WAKE_UP`
+
 -----
-- **Updated on**: 2024-12-17
+- **Updated on**: 2025-01-19
