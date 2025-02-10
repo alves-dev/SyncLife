@@ -15,15 +15,15 @@ Foi definido as seguintes separações:
 - **Dominio**: É uma especificação dentro do contexto, onde deve limitar a algum dado em especifico.
 
 #### Lista de aplicações na stack:
-| Application                                                               | Context      | Description                                                                                            | Status        |
-|---------------------------------------------------------------------------|--------------|--------------------------------------------------------------------------------------------------------|---------------|
-| [BodyTrack](https://github.com/alves-dev/SyncLife-Health-BodyTrack)       | Health       | Aquilo que eu faço/tem haver com o meu corpo; medidas, atividades físicas, mapeamento do sono e outros | Desenvolvendo |
-| [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync) | Orchestrator | Orquestra os eventos entre os protocolos MQTT e AMQP                                                   | Desenvolvendo |
-| [Grafana](https://grafana.com/)                                           | View         | Ferramenta usada para visualização dos dados em forma de gráficos                                      | -----         |
-| [Mosquitto](https://mosquitto.org/)                                       | Orchestrator | Broker MQTT para comunicação com o Home Assistant                                                      | -----         |
-| [MySQL](https://www.mysql.com/)                                           | Data         | Banco de dados relacional                                                                              | -----         |
-| [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)     | Health       | Tudo aquilo que eu ingiro, como; água, comida, suplementos e outros                                    | Desenvolvendo |
-| [RabbitMQ](https://www.rabbitmq.com/)                                     | Orchestrator | Ferramenta usada para fila de eventos, mais em : [eventos](events.md)                                  | -----         |
+| Context      | Application                                                               | Description                                                                                            | Status        |
+|--------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|---------------|
+| Health       | [BodyTrack](https://github.com/alves-dev/SyncLife-Health-BodyTrack)       | Aquilo que eu faço/tem haver com o meu corpo; medidas, atividades físicas, mapeamento do sono e outros | Desenvolvendo |
+| Health       | [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)     | Tudo aquilo que eu ingiro, como; água, comida, suplementos e outros                                    | Desenvolvendo |
+| Orchestrator | [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync) | Orquestra os eventos entre os protocolos MQTT e AMQP                                                   | Desenvolvendo |
+| Orchestrator | [Mosquitto](https://mosquitto.org/)                                       | Broker MQTT para comunicação com o Home Assistant                                                      | -----         |
+| Orchestrator | [RabbitMQ](https://www.rabbitmq.com/)                                     | Ferramenta usada para fila de eventos, mais em : [eventos](events.md)                                  | -----         |
+| View         | [Grafana](https://grafana.com/)                                           | Ferramenta usada para visualização dos dados em forma de gráficos                                      | -----         |
+| Data         | [MySQL](https://www.mysql.com/)                                           | Banco de dados relacional                                                                              | -----         |
 
 
 #### Aplicações e suas tecnologias:

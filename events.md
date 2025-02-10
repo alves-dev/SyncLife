@@ -128,5 +128,66 @@ __base event:__
 ```
 - **action**: `SLEEP` ou `WAKE_UP`
 
+
+#### Event: `NOTIFICATION.V1`
+- **Context**: ` `
+- **Created**: `2025-02-10`
+- **Triggers**: `ALL`
+- **Listeners**: `EventSync`
+- **routing_key**: `notification`
+
+```json
+[
+  {
+    "type": "NOTIFICATION.V1",
+    "person_id": "igor_alves",
+    "datetime": "2025-01-19T06:00",
+    "notification": {
+      "recipient_type": "PERSON",
+      "recipient_id": "igor_alves",
+      "level": "MEDIUM",
+      "type": "NOTIFICATION",
+      "title": "Sleep: Igor",
+      "message": "Tempo de sono não atende as regras",
+      "id": "6748fdca-0098-41cd-9db1-8b121e59039d",
+      "origin": "Body Track",
+      "private": false,
+      "showBefore": "2025-02-10 16:03"
+    },
+    "meta_data": {}
+  },
+  {
+    "type": "NOTIFICATION.V1",
+    "person_id": "igor_alves",
+    "datetime": "2025-02-27T11:00",
+    "notification": {
+      "recipient_type": "PERSON",
+      "recipient_id": "igor_alves",
+      "level": "MEDIUM",
+      "type": "QUESTION_3",
+      "title": "Comeu!!!",
+      "message": "Já fez o almoço ?",
+      "origin": "Body Track",
+      "id": "hora_almoco",
+      "private": false,
+      "option_1": "Sim",
+      "option_2": "Não",
+      "option_3": "Faz tempo",
+      "show_after": "2025-02-27 11:00",
+      "show_before": "2025-02-27 14:00"
+    },
+    "meta_data": {}
+  }
+]
+```
+- **recipient_type**: `PERSON` aqui pode vir a ser um dispositivo em especifico
+- **recipient_id**: `person_id` para quando `recipient_type` for `PERSON`
+- **level**: `LOW`, `MEDIUM`, `HIGH`
+- **type**: `DEBUG`, `NOTIFICATION`, `REMINDER`, `QUESTION_2`, `QUESTION_3` isso ajuda em como vai ser desenhado no HA
+- **id**: identificador único, usado para deletar uma notificação por exemplo
+- **private**: indica se a mensagem deve ser tratada como privada (não anunciar na Alexa por exemplo)
+- **show_after**: `Opcional` - datas utilizadas para mostrar ou não a notificação
+- **show_before**: `Opcional` - datas utilizadas para mostrar ou não o notificação
+
 -----
-- **Updated on**: 2025-01-19
+- **Updated on**: 2025-02-10
