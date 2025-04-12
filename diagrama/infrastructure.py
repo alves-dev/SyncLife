@@ -18,8 +18,12 @@ with Diagram(f'Infraestrutura fisica - {date}', show=False, direction='LR', outf
     with Cluster('Home', graph_attr={'fontsize': '15'}):
         provider = Router('Roteador bridge: Arris')
         tp_link = Custom('Roteador', '../images/tp-link.png')
-        raspberry = Custom('Raspberry pi 4', '../images/raspberry-pi.png')
+
+        with Cluster('Rack', graph_attr={'fontsize': '15'}):
+            raspberry = Custom('Raspberry pi 4', '../images/raspberry-pi.png')
+            think_centre = Custom('ThinkCentre', '../images/lenovo.png')
 
         provider >> Edge(label='cabo') << tp_link >> Edge(label='cabo') << raspberry
+        tp_link >> Edge(label='cabo') << think_centre
 
     internet >> Edge(label='Fibra') << provider
