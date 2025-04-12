@@ -22,8 +22,10 @@ with Diagram(f'Infraestrutura fisica - {date}', show=False, direction='LR', outf
         with Cluster('Rack', graph_attr={'fontsize': '15'}):
             raspberry = Custom('Raspberry pi 4', '../images/raspberry-pi.png')
             think_centre = Custom('ThinkCentre', '../images/lenovo.png')
+            temperature = Custom('Node MCU', '../images/temperature.jpeg')
 
         provider >> Edge(label='cabo') << tp_link >> Edge(label='cabo') << raspberry
         tp_link >> Edge(label='cabo') << think_centre
+        tp_link >> Edge(label='Wi-Fi',style="dashed") << temperature
 
     internet >> Edge(label='Fibra') << provider
