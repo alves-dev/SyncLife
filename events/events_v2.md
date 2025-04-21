@@ -1,6 +1,6 @@
-# Lista de Eventos
+# Lista de Eventos V2
 
-Aqui listarei todos os eventos possiveis
+Aqui listarei todos os eventos possíveis
 
 ### Todos os eventos vão ter os seguintes campos:
 
