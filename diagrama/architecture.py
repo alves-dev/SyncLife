@@ -4,10 +4,8 @@ from diagrams import Diagram, Cluster, Edge
 from diagrams.custom import Custom
 from diagrams.onprem.container import Docker
 from diagrams.onprem.database import Mysql
-from diagrams.onprem.monitoring import Grafana
 from diagrams.onprem.queue import RabbitMQ
-from diagrams.programming.framework import Quarkus, Spring
-from diagrams.programming.language import Python, Csharp
+from diagrams.programming.language import Csharp, Java
 
 all_formats = ["jpg", "png", "svg", "pdf", "dot"]
 formats = ["pdf"]
@@ -22,32 +20,33 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
     with Cluster('internet', graph_attr={'fontsize': '15'}):
         google_drive = Custom('Google drive', '../images/google-drive.png')
 
+
         with Cluster('automation', graph_attr={'fontsize': '15'}):
             ha_mobile = Custom('HA Mobile', '../images/home-assistant-mobile.png')
 
     with Cluster('local-network', graph_attr={'fontsize': '15'}):
-        core_dns = Custom("Core DNS", '../images/core.jpeg')
-        proxy = Custom("swag", '../images/swag.jpeg')
-        cloudflare = Custom("cloudflare tunnel", '../images/cloudflare.png')
+        core_dns = Custom("", '../images/dns.png')
+        proxy = Custom("swag", '../images/swag.png')
+        cloudflare = Custom("Tunnel", '../images/tunnel.png')
 
         core_dns >> Edge() << proxy >> Edge() << cloudflare
 
         with Cluster('', graph_attr={'fontsize': '15'}):
 
             with Cluster('data', graph_attr={'fontsize': '15'}):
-                mysql = Mysql('Mysql')
+                mysql = Mysql('')
                 mysql_cron = Custom('Cron Backup', '../images/cron.png')
-                rclone_mysql = Custom('Rclone', '../images/rclone.png')
-                volume_mysql = Docker("Volume Docker")
+                rclone_mysql = Custom('', '../images/rclone.png')
+                volume_mysql = Docker("Volume")
                 mysql >> mysql_cron >> volume_mysql
                 volume_mysql << rclone_mysql >> google_drive
 
             with Cluster('health', graph_attr={'fontsize': '15'}):
-                service_nutri_track = Quarkus('Nutri Track')
-                service_body_track = Spring('Body Track')
-                service_exercise = Spring('Exercise Service')
+                service_nutri_track = Java('Nutri Track')
+                service_body_track = Custom('Body Track', '../images/kotlin.png')
+                service_exercise = Custom('Exercise Service', '../images/kotlin.png')
 
-                ha_link = Python('HA Link Service')
+                ha_link = Custom('HA Link Service', '../images/python.png')
 
                 health_rabbit = [
                     service_nutri_track,
@@ -63,24 +62,23 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
 
             with Cluster('orchestration', graph_attr={'fontsize': '15'}):
                 event_sync = Csharp('Event Sync')
-                mosquitto = Custom('Mosquitto', '../images/mosquitto.png')
+                mosquitto = Custom('', '../images/mosquitto.png')
                 rabbitmq = RabbitMQ('RabbitMQ')
                 rabbitmq >> Edge() << event_sync >> Edge() << mosquitto
 
             with Cluster('view', graph_attr={'fontsize': '15'}):
-                grafana = Grafana('Grafana')
+                grafana = Custom('', '../images/grafana.png')
 
             with Cluster('automation', graph_attr={'fontsize': '15'}):
                 ha = Custom('Home Assistant', '../images/home-assistant.png')
-                # ha_mobile = Custom('HA Mobile', '../images/home-assistant-mobile.png')
-                volume_ha = Docker("Volume Docker")
-                rclone_ha = Custom('Rclone', '../images/rclone.png')
+                volume_ha = Docker("Volume")
+                rclone_ha = Custom('', '../images/rclone.png')
                 ha_mobile >> Edge() << ha
                 ha >> volume_ha << rclone_ha >> google_drive
 
             with Cluster('monitoring', graph_attr={'fontsize': '15'}):
-                glances = Docker('Glances')
-                Docker('Portainer')
+                glances = Custom('', '../images/glances.png')
+                Custom('', '../images/portainer.png')
 
                 glances >> ha
 
