@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alves-dev/SyncLife/tree/main/events/schema/orchestrator/subscriptions.requested.v1.json",
+  "title": "SubscriptionRequestEvent",
+  "description": "Evento enviado por um serviço para solicitar inscrição em eventos via RabbitMQ",
+  "type": "object",
+  "properties": {
+    "specversion": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "const": "orchestrator.subscriptions.requested.v1"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^/services/[a-z0-9\\-]+$"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "datacontenttype": {
+      "type": "string",
+      "const": "application/json"
+    },
+    "dataschema": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://github\\.com/alves-dev/SyncLife/.+\\.json$"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "service_id",
+        "queue_name",
+        "subscriptions"
+      ],
+      "properties": {
+        "service_id": {
+          "type": "string",
+          "description": "Identificador único do serviço (ex: home-assistant)"
+        },
+        "queue_name": {
+          "type": "string",
+          "description": "Nome da fila que receberá os eventos"
+        },
+        "subscriptions": {
+          "type": "object",
+          "properties": {
+            "event_types": {
+              "type": "array",
+              "description": "Tipos de eventos que deve ser encaminhado para a fila declarada acima",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "Identifica a origem do evento, pode ser o nome de uma integração, aplicação, etc."
+        }
+      },
+      "required": [
+        "origin"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "specversion",
+    "type",
+    "source",
+    "id",
+    "time",
+    "datacontenttype",
+    "dataschema",
+    "data",
+    "extensions"
+  ],
+  "additionalProperties": false
+}
