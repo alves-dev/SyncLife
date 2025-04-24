@@ -35,27 +35,27 @@ Foi definido as seguintes separações:
 - ----- significa que ainda não foi completamente mapeado e não tem aplicação que lide com isso.
 
 #### Lista de aplicações na stack:
-| Application                                                                                         | Domínio          | Sub domínio | Description                                                                  |
-|-----------------------------------------------------------------------------------------------------|------------------|-------------|------------------------------------------------------------------------------|
-| [BodyTrack](https://github.com/alves-dev/SyncLife-Health-BodyTrack)                                 | health           | sleep       | ---                                                                          |
-| [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)                               | health           | nutrition   | ---                                                                          |
-| [life-exercises](https://github.com/alves-dev/life-exercises)                                       | health           | exercise    | Atualmente registra as idas na academia                                      |
-| [assistant-link](https://github.com/alves-dev/life-assistant-link)                                  | health           | exercise    | Legado que cria eventos a partir de request http do HA                       |
-| [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync)                           | orchestration    | ---         | Orquestra os eventos entre os protocolos MQTT e AMQP                         |
-| [Mosquitto](https://mosquitto.org/)                                                                 | orchestration    | ---         | Broker MQTT para comunicação com o Home Assistant                            |
-| [RabbitMQ](https://www.rabbitmq.com/)                                                               | orchestration    | ---         | Ferramenta usada para fila de eventos, mais em : [eventos](events/events_v2) |
-| [Grafana](https://grafana.com/)                                                                     | view             | ---         | Ferramenta usada para visualização dos dados em forma de gráficos            |
-| [MySQL](https://www.mysql.com/)                                                                     | data             | ---         | Banco de dados relacional                                                    |
-| [cron-backup](https://hub.docker.com/r/fradelg/mysql-cron-backup)                                   | data             | ---         | Realiza o backup do banco mysql                                              |
-| [rclone](https://rclone.org/)                                                                       | data, automation | ---         | Copia os backups locais para a nuvem                                         |
-| [home assistant](https://www.home-assistant.io/)                                                    | automation       | ---         | Usado para automações                                                        |
-| [home assistant app mobile](https://www.home-assistant.io/integrations/mobile_app/)                 | automation       | ---         | App mobile do HA                                                             |
-| [coredns](https://coredns.io/)                                                                      | infrastructure   | network     | Servidor DNS interno                                                         |
-| [swag](https://docs.linuxserver.io/general/swag/)                                                   | infrastructure   | network     | Proxy reverso                                                                |
-| [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) | infrastructure   | network     | Usado para expor aplicações na internet                                      |
-| [glances](https://nicolargo.github.io/glances/)                                                     | infrastructure   | ---         | Monitoramento linux                                                          |
-| [portainer](https://www.portainer.io/)                                                              | infrastructure   | ---         | Monitoramento docker                                                         |
-| [Google Drive](https://developers.google.com/workspace/drive?hl=pt-br)                              | data             | ---         | Armazenamento de backups                                                     |
+| Application                                                                                         | Domínio          | Sub domínio | Description                                                                     |
+|-----------------------------------------------------------------------------------------------------|------------------|-------------|---------------------------------------------------------------------------------|
+| [BodyTrack](https://github.com/alves-dev/SyncLife-Health-BodyTrack)                                 | health           | sleep       | ---                                                                             |
+| [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)                               | health           | nutrition   | ---                                                                             |
+| [life-exercises](https://github.com/alves-dev/life-exercises)                                       | health           | exercise    | Atualmente registra as idas na academia                                         |
+| [assistant-link](https://github.com/alves-dev/life-assistant-link)                                  | health           | exercise    | Legado que cria eventos a partir de request http do HA                          |
+| [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync)                           | orchestration    | ---         | Orquestra os eventos entre os protocolos MQTT e AMQP                            |
+| [Mosquitto](https://mosquitto.org/)                                                                 | orchestration    | ---         | Broker MQTT para comunicação com o Home Assistant                               |
+| [RabbitMQ](https://www.rabbitmq.com/)                                                               | orchestration    | ---         | Ferramenta usada para fila de eventos, mais em : [eventos](events/events_v2.md) |
+| [Grafana](https://grafana.com/)                                                                     | view             | ---         | Ferramenta usada para visualização dos dados em forma de gráficos               |
+| [MySQL](https://www.mysql.com/)                                                                     | data             | ---         | Banco de dados relacional                                                       |
+| [cron-backup](https://hub.docker.com/r/fradelg/mysql-cron-backup)                                   | data             | ---         | Realiza o backup do banco mysql                                                 |
+| [rclone](https://rclone.org/)                                                                       | data, automation | ---         | Copia os backups locais para a nuvem                                            |
+| [home assistant](https://www.home-assistant.io/)                                                    | automation       | ---         | Usado para automações                                                           |
+| [home assistant app mobile](https://www.home-assistant.io/integrations/mobile_app/)                 | automation       | ---         | App mobile do HA                                                                |
+| [coredns](https://coredns.io/)                                                                      | infrastructure   | network     | Servidor DNS interno                                                            |
+| [swag](https://docs.linuxserver.io/general/swag/)                                                   | infrastructure   | network     | Proxy reverso                                                                   |
+| [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) | infrastructure   | network     | Usado para expor aplicações na internet                                         |
+| [glances](https://nicolargo.github.io/glances/)                                                     | infrastructure   | ---         | Monitoramento linux                                                             |
+| [portainer](https://www.portainer.io/)                                                              | infrastructure   | ---         | Monitoramento docker                                                            |
+| [Google Drive](https://developers.google.com/workspace/drive?hl=pt-br)                              | data             | ---         | Armazenamento de backups                                                        |
 
 
 #### Aplicações e suas tecnologias:
