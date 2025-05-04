@@ -5,7 +5,7 @@ from diagrams.custom import Custom
 from diagrams.onprem.container import Docker
 from diagrams.onprem.database import Mysql
 from diagrams.onprem.queue import RabbitMQ
-from diagrams.programming.language import Csharp, Java
+from diagrams.programming.language import Csharp, Java, Go
 
 all_formats = ["jpg", "png", "svg", "pdf", "dot"]
 formats = ["pdf"]
@@ -64,7 +64,9 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
                 event_sync = Csharp('Event Sync')
                 mosquitto = Custom('', '../images/mosquitto.png')
                 rabbitmq = RabbitMQ('RabbitMQ')
+                subscription = Go('Subscription')
                 rabbitmq >> Edge() << event_sync >> Edge() << mosquitto
+                subscription >> Edge() << rabbitmq
 
             with Cluster('view', graph_attr={'fontsize': '15'}):
                 grafana = Custom('', '../images/grafana.png')
