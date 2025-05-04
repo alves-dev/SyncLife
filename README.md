@@ -77,5 +77,5 @@ Foi definido as seguintes separações:
 Para ver a evolução acesse: [diagrama/out_pdf](diagrama/out_pdf)
 
 -----
-- **Updated on**: 2025-04-21 | **Updated by**: Igor Alves
+- **Updated on**: 2025-05-04 | **Updated by**: Igor Alves
 - **Created on**: 2024-10-29 | **Created by**: Igor Alves

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alves-dev/SyncLife/tree/main/events/schema/health/nutrition.meals.v1.json",
+  "title": "HealthNutritionMeals",
+  "description": "Evento que representa os alimentos consumidos em uma refeição",
+  "type": "object",
+  "properties": {
+    "specversion": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "const": "health.nutrition.meals.v1"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^/services/[a-z0-9\\-]+$"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "datacontenttype": {
+      "type": "string",
+      "const": "application/json"
+    },
+    "dataschema": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://raw.githubusercontent\\.com/alves-dev/SyncLife/main/events/schema/.+\\.json$"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "person_id",
+        "meal",
+        "datetime",
+        "food_list"
+      ],
+      "properties": {
+        "person_id": {
+          "type": "string",
+          "description": "Identificador único da pessoa"
+        },
+        "meal": {
+          "type": "string",
+          "description": "Identificador da refeição, [Almoço, Janta, ...]"
+        },
+        "datetime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "food_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Uma lista com os alimentos consumidos",
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "weight": {
+          "type": "object",
+          "properties": {
+            "protein": {
+              "type": "number",
+              "description": "Peso da proteína consumida na refeição"
+            },
+            "total_meal": {
+              "type": "number",
+              "description": "Peso total da refeição"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "Identifica a origem do evento, pode ser o nome de uma integração, aplicação, etc."
+        }
+      },
+      "required": [
+        "origin"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "specversion",
+    "type",
+    "source",
+    "id",
+    "time",
+    "datacontenttype",
+    "dataschema",
+    "data",
+    "extensions"
+  ],
+  "additionalProperties": false
+}

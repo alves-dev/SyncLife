@@ -1,0 +1,28 @@
+{
+  "specversion": "1.0",
+  "type": "health.nutrition.meals.v1",
+  "source": "/services/home-assistant",
+  "id": "d4e6c2a1-1e2b-4c3d-a5f8-7b018a4cb1d0",
+  "time": "2025-04-19T16:30:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://raw.githubusercontent.com/alves-dev/SyncLife/main/events/schema/health/nutrition.meals.v1.json",
+  "data": {
+    "person_id": "igor_alves",
+    "meal": "Almoço",
+    "datetime": "2025-04-19T13:30:00-03:00",
+    "food_list": [
+      "Ovo",
+      "Frango",
+      "Arroz"
+    ],
+    "weight": {
+      "protein": 123,
+      "total_meal": 321
+    }
+  },
+  "extensions": {
+    "correlation_id": "789f12cd-abc9-4321-a7c1-111223344556",
+    "causation_id": "event-startup",
+    "origin": "home-assistant"
+  }
+}
