@@ -4,7 +4,9 @@ from diagrams import Diagram, Cluster, Edge
 from diagrams.custom import Custom
 from diagrams.onprem.container import Docker
 from diagrams.onprem.database import Mysql
+from diagrams.onprem.inmemory import Redis
 from diagrams.onprem.queue import RabbitMQ
+from diagrams.onprem.vcs import Github
 from diagrams.programming.language import Csharp, Java, Go
 
 all_formats = ["jpg", "png", "svg", "pdf", "dot"]
@@ -19,7 +21,7 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
 
     with Cluster('internet', graph_attr={'fontsize': '15'}):
         google_drive = Custom('Google drive', '../images/google-drive.png')
-
+        git_hub = Github('Action schedule')
 
         with Cluster('automation', graph_attr={'fontsize': '15'}):
             ha_mobile = Custom('HA Mobile', '../images/home-assistant-mobile.png')
@@ -35,6 +37,7 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
 
             with Cluster('data', graph_attr={'fontsize': '15'}):
                 mysql = Mysql('')
+                redis = Redis('Redis')
                 mysql_cron = Custom('Cron Backup', '../images/cron.png')
                 rclone_mysql = Custom('', '../images/rclone.png')
                 volume_mysql = Docker("Volume")
@@ -78,11 +81,14 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
                 ha_mobile >> Edge() << ha
                 ha >> volume_ha << rclone_ha >> google_drive
 
-            with Cluster('monitoring', graph_attr={'fontsize': '15'}):
+            with Cluster('infrastructure', graph_attr={'fontsize': '15'}):
                 glances = Custom('', '../images/glances.png')
                 Custom('', '../images/portainer.png')
+                inspector = Custom('Task - repo-inspector', '../images/python.png')
 
                 glances >> ha
+                inspector >> redis
+                git_hub >> inspector
 
     # services x database
     health_mysql >> Edge() << mysql
