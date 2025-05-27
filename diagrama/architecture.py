@@ -21,10 +21,13 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
 
     with Cluster('internet', graph_attr={'fontsize': '15'}):
         google_drive = Custom('Google drive', '../images/google-drive.png')
-        git_hub = Github('Action schedule')
+        github_schedule = Github('Action schedule')
 
         with Cluster('automation', graph_attr={'fontsize': '15'}):
             ha_mobile = Custom('HA Mobile', '../images/home-assistant-mobile.png')
+
+        with Cluster('data', graph_attr={'fontsize': '15'}):
+            github_storage = Github('Json storage')
 
     with Cluster('local-network', graph_attr={'fontsize': '15'}):
         core_dns = Custom("", '../images/dns.png')
@@ -74,6 +77,8 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
             with Cluster('view', graph_attr={'fontsize': '15'}):
                 grafana = Custom('', '../images/grafana.png')
 
+                grafana << github_storage
+
             with Cluster('automation', graph_attr={'fontsize': '15'}):
                 ha = Custom('Home Assistant', '../images/home-assistant.png')
                 volume_ha = Docker("Volume")
@@ -88,7 +93,7 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
 
                 glances >> ha
                 inspector >> redis
-                git_hub >> inspector
+                github_schedule >> inspector >> github_storage
 
     # services x database
     health_mysql >> Edge() << mysql
