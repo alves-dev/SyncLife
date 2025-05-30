@@ -35,12 +35,14 @@ Foi definido as seguintes separações:
 - ----- significa que ainda não foi completamente mapeado e não tem aplicação que lide com isso.
 
 #### Lista de aplicações na stack:
-| Application                                                                                                                                     | Domínio          | Sub domínio  | Description                                                                                    |
+| Componente                                                                                                                                      | Domínio          | Sub domínio  | Description                                                                                    |
 |-------------------------------------------------------------------------------------------------------------------------------------------------|------------------|--------------|------------------------------------------------------------------------------------------------|
 | [BodyTrack](https://github.com/alves-dev/SyncLife-Health-BodyTrack)                                                                             | health           | sleep        | ---                                                                                            |
 | [NutriTrack](https://github.com/alves-dev/SyncLife-Health-NutriTrack)                                                                           | health           | nutrition    | ---                                                                                            |
 | [life-exercises](https://github.com/alves-dev/life-exercises)                                                                                   | health           | exercise     | Atualmente registra as idas na academia                                                        |
 | [assistant-link](https://github.com/alves-dev/life-assistant-link)                                                                              | health           | exercise     | Legado que cria eventos a partir de request http do HA                                         |
+| [Strava](https://www.strava.com)                                                                                                                | health           | exercise     | Usado para mapear minha corridas e pedaladas                                                   |
+| [strava-map](https://github.com/alves-dev/strava-map)                                                                                           | health           | exercise     | Script que coleta minha atividades no strava e gera um json das rotas para o grafana           |
 | [EventSync](https://github.com/alves-dev/SyncLife-Orchestrator-EventSync)                                                                       | orchestration    | ---          | Orquestra os eventos entre os protocolos MQTT e AMQP                                           |
 | [Mosquitto](https://mosquitto.org/)                                                                                                             | orchestration    | ---          | Broker MQTT para comunicação com o Home Assistant                                              |
 | [RabbitMQ](https://www.rabbitmq.com/)                                                                                                           | orchestration    | ---          | Ferramenta usada para fila de eventos, mais em : [eventos](events/events_v2.md)                |
@@ -82,5 +84,5 @@ Foi definido as seguintes separações:
 Para ver a evolução acesse: [diagrama/out_pdf](diagrama/out_pdf)
 
 -----
-- **Updated on**: 2025-05-27 | **Updated by**: Igor Alves
+- **Updated on**: 2025-05-30 | **Updated by**: Igor Alves
 - **Created on**: 2024-10-29 | **Created by**: Igor Alves

@@ -22,6 +22,7 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
     with Cluster('internet', graph_attr={'fontsize': '15'}):
         google_drive = Custom('Google drive', '../images/google-drive.png')
         github_schedule = Github('Action schedule')
+        strava = Custom('Strava', '../images/strava.png')
 
         with Cluster('automation', graph_attr={'fontsize': '15'}):
             ha_mobile = Custom('HA Mobile', '../images/home-assistant-mobile.png')
@@ -52,6 +53,8 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
                 service_body_track = Custom('Body Track', '../images/kotlin.png')
                 service_exercise = Custom('Exercise Service', '../images/kotlin.png')
 
+                strava_map = Custom('Task - strava-map', '../images/python.png')
+
                 ha_link = Custom('HA Link Service', '../images/python.png')
 
                 health_rabbit = [
@@ -65,6 +68,10 @@ with Diagram(f'Arquitetura - {date}', show=False, direction='TB', outformat=form
                     service_body_track,
                     service_exercise
                 ]
+
+                strava_map >> redis
+                strava >> strava_map
+                github_schedule >> strava_map >> github_storage
 
             with Cluster('orchestration', graph_attr={'fontsize': '15'}):
                 event_sync = Csharp('Event Sync')
