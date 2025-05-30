@@ -1,0 +1,20 @@
+{
+  "specversion": "1.0",
+  "type": "health.body.measurement.v1",
+  "source": "/services/home-assistant",
+  "id": "a7f34a12-9b23-4dcd-8123-3bcd431d9aa1",
+  "time": "2025-05-29T09:00:00Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://raw.githubusercontent.com/alves-dev/sync-life/main/events/schema/health/body.measurement.v1.json",
+  "data": {
+    "person_id": "igor_alves",
+    "datetime": "2025-05-29T08:00:00-03:00",
+    "measure": "peso",
+    "value": 76.3
+  },
+  "extensions": {
+    "correlation_id": "xyz-123",
+    "causation_id": "trigger-health-sync",
+    "origin": "body-track"
+  }
+}

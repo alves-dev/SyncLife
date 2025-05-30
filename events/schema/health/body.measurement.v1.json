@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/alves-dev/sync-life/main/events/schema/health/body.measurement.v1.json",
+  "title": "HealthBodyMeasurement",
+  "description": "Evento para registrar uma medida corporal como peso, altura, etc.",
+  "type": "object",
+  "properties": {
+    "specversion": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "const": "health.body.measurement.v1"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^/services/[a-z0-9\\-]+$"
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "datacontenttype": {
+      "type": "string",
+      "const": "application/json"
+    },
+    "dataschema": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://raw.githubusercontent\\.com/alves-dev/sync-life/main/events/schema/.+\\.json$"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "person_id",
+        "measure",
+        "datetime",
+        "value"
+      ],
+      "properties": {
+        "person_id": {
+          "type": "string",
+          "description": "Identificador único da pessoa",
+          "examples": [
+            "igor_alves"
+          ]
+        },
+        "datetime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data e hora da medição",
+          "examples": [
+            "2025-05-29T08:00:00-03:00"
+          ]
+        },
+        "measure": {
+          "type": "string",
+          "description": "Tipo da medida corporal",
+          "examples": [
+            "peso",
+            "altura",
+            "coxa esquerda",
+            "IMC"
+          ]
+        },
+        "value": {
+          "type": "number",
+          "description": "Valor da medida",
+          "examples": [
+            76.3
+          ]
+        },
+        "weight": {
+          "type": "object",
+          "properties": {
+            "protein": {
+              "type": "number",
+              "description": "Peso da proteína consumida na refeição"
+            },
+            "total_meal": {
+              "type": "number",
+              "description": "Peso total da refeição"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "extensions": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "Identifica a origem do evento, pode ser o nome de uma integração, aplicação, etc."
+        }
+      },
+      "required": [
+        "origin"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "specversion",
+    "type",
+    "source",
+    "id",
+    "time",
+    "datacontenttype",
+    "dataschema",
+    "data",
+    "extensions"
+  ],
+  "additionalProperties": false
+}
